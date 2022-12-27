@@ -26,7 +26,12 @@ function mouseCoordinates(event){
     
 
 
-window.addEventListener('mousemove', mouseCoordinates);
+var svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+svg1.setAttribute("height",screen.height);
+svg1.setAttribute("width",screen.width);
+svg1.setAttribute("background","rgb(0,0,0)");
+document.body.appendChild(svg1);
+svg1.addEventListener('mousemove', mouseCoordinates);
 
 
 
@@ -47,8 +52,7 @@ function draw(centerX, centerY, init_rgb)
   var temp = 1; 
   var color = 1;
   var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-  var window = document.getElementById("window");
-  window.appendChild(circle);
+  svg1.appendChild(circle);
   circle.setAttribute("cx", centerX);
   circle.setAttribute("cy", centerY);
   circle.setAttribute("r", 10);
