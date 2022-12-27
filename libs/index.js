@@ -31,10 +31,9 @@ window.addEventListener('mousemove', mouseCoordinates);
 
 
 function trigger() {
-    var min  = custom["minTime"],
-      max = custom["maxTime"];
-    var rand = Math.floor(Math.random() * (max - min + 1) + min);
-    var limiter = Math.floor(Math.random() * (max - min + 1) + min);
+    var max = custom["chance"];
+    var rand = Math.floor(Math.random() * max);
+    var limiter = Math.floor(Math.random() * max);
     if (rand == limiter) {
       myFunction();
     }
