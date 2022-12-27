@@ -29,7 +29,7 @@ function mouseCoordinates(event){
 var svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 svg1.setAttribute("height",screen.height);
 svg1.setAttribute("width",screen.width);
-svg1.setAttribute("background","rgb(0,0,0)");
+svg1.setAttribute("style","background: rgb(0,0,0)");
 document.body.appendChild(svg1);
 svg1.addEventListener('mousemove', mouseCoordinates);
 
