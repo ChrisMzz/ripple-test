@@ -11,12 +11,12 @@
 
 const customData = await fetch("./libs/custom.json");
 var custom = await customData.json();
-
+console.log(custom);
 
 
 const soundsData = await fetch("./libs/soundfiles/sounds.json");
 var sounds = await soundsData.json();
-console.log(custom)
+
 
 
 function mouseCoordinates(event){
