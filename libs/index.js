@@ -1,4 +1,9 @@
-import custom from './libs/custom.json' assert { type: 'application/json' };
+
+var custom;
+var sounds;
+
+fetch("./libs/custom.json").then(custom = results.json())
+fetch("./libs/soundfiles/sounds.json").then(sounds = results.json())
 
 
 function mouseCoordinates(event){
