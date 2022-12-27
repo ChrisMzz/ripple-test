@@ -1,4 +1,4 @@
-import custom from './libs/custom.json' assert { type: 'JSON' };
+import custom from './libs/custom.json' assert { type: 'application/json' };
 
 
 function mouseCoordinates(event){
