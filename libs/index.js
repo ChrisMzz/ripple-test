@@ -2,8 +2,12 @@
 var custom;
 var sounds;
 
-fetch("./libs/custom.json").then(custom = results.json())
-fetch("./libs/soundfiles/sounds.json").then(sounds = results.json())
+fetch("./libs/custom.json").then(results => {
+  custom = results.json()
+  })
+fetch("./libs/soundfiles/sounds.json").then(results => {
+  sounds = results.json()
+  })
 
 
 function mouseCoordinates(event){
