@@ -31,8 +31,8 @@ window.addEventListener('mousemove', mouseCoordinates);
 
 
 function trigger() {
-    var min  = custom[minTime],
-      max = custom[maxTime];
+    var min  = custom["minTime"],
+      max = custom["maxTime"];
     var rand = Math.floor(Math.random() * (max - min + 1) + min);
     console.log('Wait for ' + rand + ' seconds');
     setTimeout(myFunction, rand * 1000);
