@@ -16,6 +16,7 @@ var sounds = await soundsData.json();
 function mouseCoordinates(event){
     mousePosX = event.clientX;
     mousePosY = event.clientY;
+    trigger();
     console.log("pageX: ", event.pageX,
     "pageY: ", event.pageY,
     "clientX: ", mousePosX,
@@ -33,11 +34,12 @@ function trigger() {
     var min  = custom["minTime"],
       max = custom["maxTime"];
     var rand = Math.floor(Math.random() * (max - min + 1) + min);
-    console.log('Wait for ' + rand + ' seconds');
-    setTimeout(myFunction, rand * 1000);
+    var limiter = Math.floor(Math.random() * (max - min + 1) + min);
+    if (rand == limiter) {
+      myFunction();
+    }
   }
   
-  myFunction()
 
 function draw(centerX, centerY)
   {
@@ -62,9 +64,6 @@ function myFunction() {
   console.log("executed a function")
 }
 
-while (true) {
-  setTimeout(trigger, 20);
-  trigger()
-}
+
 
 
