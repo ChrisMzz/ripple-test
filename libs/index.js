@@ -1,12 +1,6 @@
 
-// fetch("./libs/custom.json").then(results => {
-//  custom = results.json();
-//  console.log(custom);
-//  })
-//fetch("./libs/soundfiles/sounds.json").then(results => {
-//  sounds = results.json();
-//  console.log(sounds);
-//  })
+var mousePosX;
+var mousePosY;
 
 
 const customData = await fetch("./libs/custom.json");
@@ -20,11 +14,16 @@ var sounds = await soundsData.json();
 
 
 function mouseCoordinates(event){
+    mousePosX = event.clientX;
+    mousePosY = event.clientY;
     console.log("pageX: ", event.pageX,
     "pageY: ", event.pageY,
-    "clientX: ", event.clientX,
-    "clientY:", event.clientY)
+    "clientX: ", mousePosX,
+    "clientY:", mousePosY)
     }
+    
+    
+
 
 window.addEventListener('mousemove', mouseCoordinates);
 
@@ -40,12 +39,31 @@ function trigger() {
   
   myFunction()
 
+function draw(centerX, centerY)
+  {
+  var canvas = document.getElementById('circle');
+  if (canvas.getContext)
+  {
+  var ctx = canvas.getContext('2d'); 
+  var X = centerX;
+  var Y = centerY;
+  var R = 45;
+  ctx.beginPath();
+  ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+  ctx.lineWidth = 3;
+  ctx.strokeStyle = '#FF0000';
+  ctx.stroke();
+  }
+}
+
 
 function myFunction() {
+  draw(mousePosX, mousePosY)
   console.log("executed a function")
 }
 
-for (var i=0; i<10; i++) {
+while (true) {
+  setTimeout(trigger, 20);
   trigger()
 }
 
