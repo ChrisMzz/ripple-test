@@ -53,16 +53,14 @@ function draw(centerX, centerY, init_rgb)
   circle.setAttribute("cy", centerY);
   circle.setAttribute("r", 10);
   circle.setAttribute("fill", "none");
-  while (color >= 0) {
-    setTimeout(() => {
-      temp += 5;
-      circle.setAttribute("r", 9+temp);
-      display_color = "rgb(" + init_rgb[0]*color + ", " + init_rgb[1]*color + ", " + init_rgb[2]*color + ")";
-      color -= 0.05;
-      circle.setAttribute("fill", display_color);
-    }, 800);
-    }
-  // setTimeout(() => {  circle.remove(); }, 3000);
+  while (color >= 0.7) {
+    temp += 5;
+    circle.setAttribute("r", 9+temp);
+    display_color = "rgb(" + init_rgb[0]*color + ", " + init_rgb[1]*color + ", " + init_rgb[2]*color + ")";
+    color -= 0.05;
+    circle.setAttribute("fill", display_color);
+  }
+  setTimeout(() => {  circle.remove(); }, 3000);
 }
 
 // using https://www.30secondsofcode.org/js/s/hsl-to-rgb
