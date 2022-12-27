@@ -1,6 +1,4 @@
 
-var testconstant = 1;
-
 // fetch("./libs/custom.json").then(results => {
 //  custom = results.json();
 //  console.log(custom);
