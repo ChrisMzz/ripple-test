@@ -45,7 +45,8 @@ function myFunction() {
   console.log("executed a function")
 }
 
-
-trigger()
+for (var i=0; i<10; i++) {
+  trigger()
+}
 
 
