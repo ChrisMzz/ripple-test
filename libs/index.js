@@ -3,14 +3,24 @@ var custom;
 var sounds;
 var testconstant = 1;
 
-fetch("./libs/custom.json").then(results => {
-  custom = results.json();
-  console.log(custom);
-  })
-fetch("./libs/soundfiles/sounds.json").then(results => {
-  sounds = results.json();
-  console.log(sounds);
-  })
+// fetch("./libs/custom.json").then(results => {
+//  custom = results.json();
+//  console.log(custom);
+//  })
+//fetch("./libs/soundfiles/sounds.json").then(results => {
+//  sounds = results.json();
+//  console.log(sounds);
+//  })
+
+
+const customData = await fetch("./libs/custom.json");
+const custom = await customData.json();
+
+
+
+const soundsData = await fetch("./libs/soundfiles/sounds.json");
+const sounds = await soundsData.json();
+
 
 
 function mouseCoordinates(event){
