@@ -41,7 +41,7 @@ function trigger() {
 
 function draw(centerX, centerY)
   {
-  var canvas = document.getElementById('circle');
+  var canvas = document.getElementById('window');
   if (canvas.getContext)
   {
   var ctx = canvas.getContext('2d'); 
