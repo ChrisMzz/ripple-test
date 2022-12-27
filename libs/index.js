@@ -34,7 +34,7 @@ function trigger() {
     var max = custom["chance"];
     var rand = Math.floor(Math.random() * max);
     var limiter = Math.floor(Math.random() * max);
-    console.log(rand, limiter)
+    // console.log(rand, limiter)
     if (rand == limiter) {
       myFunction();
     }
@@ -49,13 +49,14 @@ function draw(centerX, centerY, init_rgb)
   var window = document.getElementById("window");
   window.appendChild(circle);
   circle.setAttribute("cx", centerX);
-  circle.setAttribute("cx", centerY);
+  circle.setAttribute("cy", centerY);
   circle.setAttribute("fill", "none");
   while (color >= 0) {
     temp += .05;
     circle.setAttribute("r", 9+temp);
     var display_color = "rgb(" + init_rgb[0]*color + ", " + init_rgb[1]*color + ", " + init_rgb[2]*color + ")";
     color -= 0.05;
+    console.log(color);
     circle.setAttribute("stroke", display_color);
   }
   circle = null;
