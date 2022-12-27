@@ -43,6 +43,7 @@ function trigger() {
 
 function draw(centerX, centerY, init_rgb)
   {
+  var display_color;
   var temp = 1; 
   var color = 1;
   var circle = document.createElement("circle");
@@ -51,14 +52,12 @@ function draw(centerX, centerY, init_rgb)
   circle.setAttribute("cx", centerX);
   circle.setAttribute("cy", centerY);
   circle.setAttribute("fill", "none");
-  while (color >= 0) {
-    setTimeout(() => {
-      temp += .5;
-      circle.setAttribute("r", 9+temp);
-      var display_color = "rgb(" + init_rgb[0]*color + ", " + init_rgb[1]*color + ", " + init_rgb[2]*color + ")";
-      color -= 0.05;
-      circle.setAttribute("fill", display_color);
-      }, 300);
+  while (color >= 50) {
+    temp += .5;
+    circle.setAttribute("r", 9+temp);
+    display_color = "rgb(" + init_rgb[0]*color + ", " + init_rgb[1]*color + ", " + init_rgb[2]*color + ")";
+    color -= 0.05;
+    circle.setAttribute("fill", display_color);
   }
   // setTimeout(() => {  circle.remove(); }, 3000);
 }
