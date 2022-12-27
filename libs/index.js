@@ -1,6 +1,4 @@
 
-var custom;
-var sounds;
 var testconstant = 1;
 
 // fetch("./libs/custom.json").then(results => {
