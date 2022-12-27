@@ -1,12 +1,15 @@
 
 var custom;
 var sounds;
+var testconstant = 1;
 
 fetch("./libs/custom.json").then(results => {
-  custom = results.json()
+  custom = results.json();
+  console.log(custom);
   })
 fetch("./libs/soundfiles/sounds.json").then(results => {
-  sounds = results.json()
+  sounds = results.json();
+  console.log(sounds);
   })
 
 
