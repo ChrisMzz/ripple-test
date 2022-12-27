@@ -45,7 +45,8 @@ function draw(centerX, centerY, init_rgb)
   {
   var temp = 1; 
   var color = 1;
-  var circle = window.createElement("circle");
+  var circle = document.createElement("circle");
+  window.appendChild(circle);
   circle.setAttribute("cx", centerX);
   circle.setAttribute("cx", centerY);
   circle.setAttribute("fill", "none");
