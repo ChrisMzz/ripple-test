@@ -46,7 +46,7 @@ function draw(centerX, centerY, init_rgb)
   var display_color;
   var temp = 1; 
   var color = 1;
-  var circle = document.createElement("circle");
+  var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
   var window = document.getElementById("window");
   window.appendChild(circle);
   circle.setAttribute("cx", centerX);
