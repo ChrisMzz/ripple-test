@@ -54,12 +54,14 @@ function draw(centerX, centerY, init_rgb)
   circle.setAttribute("r", 10);
   circle.setAttribute("fill", "none");
   while (color >= 0) {
-    temp += .5;
-    circle.setAttribute("r", 9+temp);
-    display_color = "rgb(" + init_rgb[0]*color + ", " + init_rgb[1]*color + ", " + init_rgb[2]*color + ")";
-    color -= 0.05;
-    circle.setAttribute("fill", display_color);
-  }
+    setTimeout(() => {
+      temp += 5;
+      circle.setAttribute("r", 9+temp);
+      display_color = "rgb(" + init_rgb[0]*color + ", " + init_rgb[1]*color + ", " + init_rgb[2]*color + ")";
+      color -= 0.05;
+      circle.setAttribute("fill", display_color);
+    }, 800);
+    }
   // setTimeout(() => {  circle.remove(); }, 3000);
 }
 
