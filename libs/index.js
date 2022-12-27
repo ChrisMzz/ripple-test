@@ -56,7 +56,8 @@ function draw(centerX, centerY, init_rgb)
     color -= 0.05;
     circle.setAttribute("stroke", display_color);
   }
-  delete circle
+  circle = null;
+
 }
 
 // using https://www.30secondsofcode.org/js/s/hsl-to-rgb
