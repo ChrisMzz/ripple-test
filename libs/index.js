@@ -16,12 +16,12 @@ var scale = sounds["random_scale_select"][Math.floor(Math.random() * 7)+1];
 var transposeValue = Math.floor(Math.random() * 12)
 
 function randomNote(scale) {
-  note = (sounds["scales"][scale][Math.floor(Math.random() * 7)+1] + transposeValue) % 12 + 1;
+  var note = (sounds["scales"][scale][Math.floor(Math.random() * 7)+1] + transposeValue) % 12 + 1;
   return sounds["notes"][note]
 }
 
 function randomiNote(scale) {
-  inote = (sounds["scales"][scale][Math.floor(Math.random() * 7)+1]+(12*Math.floor(Math.random()*2)) + transposeValue) % 24 + 1;
+  var inote = (sounds["scales"][scale][Math.floor(Math.random() * 7)+1]+(12*Math.floor(Math.random()*2)) + transposeValue) % 24 + 1;
   return sounds["inotes"][inote]
 }
 
