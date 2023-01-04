@@ -11,18 +11,19 @@ console.log(custom);
 const soundsData = await fetch("./libs/soundfiles/sounds.json");
 var sounds = await soundsData.json();
 console.log(sounds);
-console.log(sounds["sounds"]["random_scale_select"]);
-var scale = sounds["sounds"]["random_scale_select"][String(Math.floor(Math.random() * 7)+1)];
+// notes = 0, inotes = 1, scales = 2, random_scale_select = 3
+console.log(sounds[3]);
+var scale = sounds[3][String(Math.floor(Math.random() * 7)+1)];
 var transposeValue = Math.floor(Math.random() * 12)
 
 function randomNote(scale) {
-  note = (sounds["sounds"]["scales"][scale][String(Math.floor(Math.random() * 7)+1)] + transposeValue) % 12 + 1;
-  return sounds["sounds"]["notes"][note]
+  note = (sounds[2][scale][String(Math.floor(Math.random() * 7)+1)] + transposeValue) % 12 + 1;
+  return sounds[0][note]
 }
 
 function randomiNote(scale) {
-  inote = (sounds["sounds"]["scales"][scale][String(Math.floor(Math.random() * 7)+1)]+(12*Math.floor(Math.random()*2)) + transposeValue) % 24 + 1;
-  return sounds["sounds"]["inotes"][inote]
+  inote = (sounds[2][scale][String(Math.floor(Math.random() * 7)+1)]+(12*Math.floor(Math.random()*2)) + transposeValue) % 24 + 1;
+  return sounds[1][inote]
 }
 
 
