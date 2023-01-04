@@ -51,18 +51,16 @@ svg1.setAttribute("width",screen.availWidth);
 svg1.setAttribute("style","background: rgb(0,0,0)");
 document.body.appendChild(svg1);
 svg1.addEventListener('click', () => {clicks += 1;});
-function codeThatMightChangeFlag() {
-  if (clicks > 0) {
-    svg1.addEventListener('mousemove', mouseCoordinates);
-  } else {
-    codeThatMightChangeFlag()
-  }
+svg1.addEventListener('mousemove', mouseCoordinates);
+
+function atLeastOneClick() {
+  return (clicks > 0);
 }
-codeThatMightChangeFlag()
-
-
 
 function trigger() {
+    if (atLeastOneClick() == false) {
+      return
+    }
     var max = custom["chance"];
     var rand = Math.floor(Math.random() * max);
     var limiter = Math.floor(Math.random() * max);
