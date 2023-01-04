@@ -2,6 +2,7 @@
 var mousePosX;
 var mousePosY;
 
+var clicks = 0;
 
 const customData = await fetch("./libs/custom.json");
 var custom = await customData.json();
@@ -12,17 +13,22 @@ const soundsData = await fetch("./libs/soundfiles/sounds.json");
 var sounds = await soundsData.json();
 console.log(sounds);
 console.log(sounds["random_scale_select"]);
+
 var scale = sounds["random_scale_select"][Math.floor(Math.random() * 7)+1];
-var transposeValue = Math.floor(Math.random() * 12)
+var transposeValue = Math.floor(Math.random() * 12);
+console.log(scale);
+console.log(transposeValue);
+
+
 
 function randomNote(scale) {
   var note = (sounds["scales"][scale][Math.floor(Math.random() * 7)+1] + transposeValue) % 12 + 1;
-  return sounds["notes"][note]
+  return sounds["notes"][note];
 }
 
 function randomiNote(scale) {
   var inote = (sounds["scales"][scale][Math.floor(Math.random() * 7)+1]+(12*Math.floor(Math.random()*2)) + transposeValue) % 24 + 1;
-  return sounds["inotes"][inote]
+  return sounds["inotes"][inote];
 }
 
 
@@ -44,7 +50,13 @@ svg1.setAttribute("height",screen.availHeight);
 svg1.setAttribute("width",screen.availWidth);
 svg1.setAttribute("style","background: rgb(0,0,0)");
 document.body.appendChild(svg1);
-svg1.addEventListener('mousemove', mouseCoordinates);
+svg1.addEventListener('click', () => {clicks += 1;});
+function codeThatMightChangeFlag(callback) {
+  if (clicks > 0) {
+    svg1.addEventListener('mousemove', mouseCoordinates);
+  }
+}
+
 
 
 
@@ -104,8 +116,8 @@ function myFunction() {
   var note_path = 'libs/soundfiles/' + note + '.mp3';
   var audio = new Audio(note_path);
   audio.play();
-  draw(mousePosX, mousePosY, init_rgb)
-  console.log("Played a " + note + " with a circle of hue " + init_hue + ".")
+  draw(mousePosX, mousePosY, init_rgb);
+  console.log("Played a " + note + " with a circle of hue " + init_hue + ".");
 }
 
 
