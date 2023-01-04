@@ -10,6 +10,8 @@ console.log(custom);
 
 const soundsData = await fetch("./libs/soundfiles/sounds.json");
 var sounds = await soundsData.json();
+console.log(sounds);
+console.log(sounds["random_scale_select"]);
 var scale = sounds["random_scale_select"][String(Math.floor(Math.random() * 7)+1)];
 var transposeValue = Math.floor(Math.random() * 12)
 
