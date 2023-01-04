@@ -27,8 +27,8 @@ function mouseCoordinates(event){
 
 
 var svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-svg1.setAttribute("height",screen.height);
-svg1.setAttribute("width",screen.width);
+svg1.setAttribute("height",screen.availHeight);
+svg1.setAttribute("width",screen.availWidth);
 svg1.setAttribute("style","background: rgb(0,0,0)");
 document.body.appendChild(svg1);
 svg1.addEventListener('mousemove', mouseCoordinates);
@@ -58,13 +58,13 @@ function draw(centerX, centerY, init_rgb)
   circle.setAttribute("r", 10);
   circle.setAttribute("fill", "none");
   while (color >= 0.2) {
-    temp += 5;
+    temp += 10;
     display_color = "rgb(" + init_rgb[0]*color + ", " + init_rgb[1]*color + ", " + init_rgb[2]*color + ")";
     color -= 0.05;
     setTimeout(() => {  
       circle.setAttribute("r", 9+temp);
       circle.setAttribute("fill", display_color);
-    }, 15);
+    }, 188);
   }
   setTimeout(() => {  circle.remove(); }, 3000);
 }
