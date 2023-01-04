@@ -97,11 +97,11 @@ function myFunction() {
   var init_rgb = HSLToRGB(init_hue, 100, 69)
   var i = Math.floor(Math.random() * 2);
   if (i==0) {
-    note = randomNote(scale);
+    var note = randomNote(scale);
   } else {
-    note = randomiNote(scale);
+    var note = randomiNote(scale);
   }
-  note_path = 'libs/soundfiles/' + note + '.mp3';
+  var note_path = 'libs/soundfiles/' + note + '.mp3';
   var audio = new Audio(note_path);
   audio.play();
   draw(mousePosX, mousePosY, init_rgb)
