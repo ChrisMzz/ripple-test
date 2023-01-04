@@ -11,18 +11,18 @@ console.log(custom);
 const soundsData = await fetch("./libs/soundfiles/sounds.json");
 var sounds = await soundsData.json();
 console.log(sounds);
-console.log(sounds["random_scale_select"]);
-var scale = sounds["random_scale_select"][String(Math.floor(Math.random() * 7)+1)];
+console.log(sounds["sounds"]["random_scale_select"]);
+var scale = sounds["sounds"]["random_scale_select"][String(Math.floor(Math.random() * 7)+1)];
 var transposeValue = Math.floor(Math.random() * 12)
 
 function randomNote(scale) {
-  note = (sounds["scales"][scale][String(Math.floor(Math.random() * 7)+1)] + transposeValue) % 12 + 1;
-  return sounds["notes"][note]
+  note = (sounds["sounds"]["scales"][scale][String(Math.floor(Math.random() * 7)+1)] + transposeValue) % 12 + 1;
+  return sounds["sounds"]["notes"][note]
 }
 
 function randomiNote(scale) {
-  inote = (sounds["scales"][scale][String(Math.floor(Math.random() * 7)+1)]+(12*Math.floor(Math.random()*2)) + transposeValue) % 24 + 1;
-  return sounds["inotes"][inote]
+  inote = (sounds["sounds"]["scales"][scale][String(Math.floor(Math.random() * 7)+1)]+(12*Math.floor(Math.random()*2)) + transposeValue) % 24 + 1;
+  return sounds["sounds"]["inotes"][inote]
 }
 
 
@@ -97,14 +97,15 @@ function myFunction() {
   var init_rgb = HSLToRGB(init_hue, 100, 69)
   var i = Math.floor(Math.random() * 2);
   if (i==0) {
-    note_path = 'libs/soundfiles/' + randomNote(scale) + '.mp3';
+    note = randomNote(scale);
   } else {
-    note_path = 'libs/soundfiles/' + randomiNote(scale) + '.mp3';
+    note = randomiNote(scale);
   }
+  note_path = 'libs/soundfiles/' + note + '.mp3';
   var audio = new Audio(note_path);
   audio.play();
   draw(mousePosX, mousePosY, init_rgb)
-  console.log("executed a function")
+  console.log("Played a " + note + " with a circle of hue " + init_hue + ".")
 }
 
 
