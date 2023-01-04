@@ -107,8 +107,8 @@ const HSLToRGB = (h, s, l) => {
 function myFunction() {
   var init_hue = Math.random()*360;
   var init_rgb = HSLToRGB(init_hue, 100, 69)
-  var i = Math.floor(Math.random() * 2);
-  if (i==0) {
+  var i = Math.floor(Math.random() * 5);
+  if (i==4) {
     var note = randomNote(scale);
   } else {
     var note = randomiNote(scale);
