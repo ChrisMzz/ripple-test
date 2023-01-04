@@ -22,12 +22,12 @@ console.log(transposeValue);
 
 
 function randomNote(scale) {
-  var note = (sounds["scales"][scale][Math.floor(Math.random() * 7)+1] + transposeValue) % 12 + 1;
+  var note = (sounds["scales"][scale][Math.floor(Math.random() * 7)] + transposeValue-1) % 12 + 1;
   return sounds["notes"][note];
 }
 
 function randomiNote(scale) {
-  var inote = (sounds["scales"][scale][Math.floor(Math.random() * 7)+1]+(12*Math.floor(Math.random()*2)) + transposeValue) % 24 + 1;
+  var inote = (sounds["scales"][scale][Math.floor(Math.random() * 7)]+(12*Math.floor(Math.random()*2)) + transposeValue) % 24 + 1;
   return sounds["inotes"][inote];
 }
 
