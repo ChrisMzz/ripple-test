@@ -123,21 +123,21 @@ function updateValues(e) {
 //<canvas id="scene" width="682" height="814" style="left: -30px; top: -30px;"></canvas>
 
 
-var scene = document.createElement("canvas");
-scene.setAttribute("id", "scene");
-scene.setAttribute("aspect-ratio", "auto");
-document.body.appendChild(scene);
+
 
 var svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 //svg1.setAttribute("height",screen.availHeight);
 //svg1.setAttribute("width",screen.availWidth);
 svg1.setAttribute("style","background: rgb(0,0,0)");
-scene.appendChild(svg1);
+svg1.setAttribute("width", screen.availWidth);
+svg1.setAttribute("height", screen.availHeight);
+document.body.appendChild(svg1);
 
 var settings = document.createElement("div");
 settings.setAttribute("class", "settings");
+settings.setAttribute("width", "200");
 settings.addEventListener('change', updateValues);
-scene.appendChild(settings);
+document.body.appendChild(settings);
 
 var maxLabel = document.createElement("label");
 maxLabel.innerText = "Chance Value : ";
@@ -152,7 +152,7 @@ maxInputBox.setAttribute("maxlength", "8");
 maxInputBox.setAttribute("value", "100");
 maxLabel.appendChild(maxInputBox);
 
-var scaleInputBox = document.createElement("input");
+var scaleInputBox = document.createElement("select");
 scaleInputBox.setAttribute("id", "scale");
 for (var l=1; l<=7; l++) {
   var option = document.createElement("option");
