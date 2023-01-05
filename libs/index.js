@@ -116,7 +116,9 @@ function updateValues(e) {
   if (e.target.id == "chance") {
     max = e.target.value;
   } else if (e.target.id == "scale") {
-    scale = scaleInputBox.getAttribute("value");
+    scale = e.target.value;
+  } else if (e.target.id == "mute") {
+    mute = e.target.value;
   }
 }
 
@@ -126,7 +128,7 @@ function updateValues(e) {
 //<canvas id="scene" width="682" height="814" style="left: -30px; top: -30px;"></canvas>
 
 
-
+var br = document.createElement("br");
 
 var svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 //svg1.setAttribute("height",screen.availHeight);
@@ -145,15 +147,28 @@ document.body.appendChild(settings);
 var maxLabel = document.createElement("label");
 maxLabel.innerText = "Chance Value : ";
 settings.appendChild(maxLabel);
+var muteLabel = document.createElement("label");
+mute.innerText = "Mute : ";
+settings.appendChild(muteLabel);
+settings.appendChild(br);
 var scaleLabel = document.createElement("label");
 scaleLabel.innerText = "Choose a scale : ";
 settings.appendChild(scaleLabel);
+
+
 
 var maxInputBox = document.createElement("input");
 maxInputBox.setAttribute("id", "chance");
 maxInputBox.setAttribute("maxlength", "8");
 maxInputBox.setAttribute("value", "100");
 maxLabel.appendChild(maxInputBox);
+
+var muteCheckBox = document.createElement("input");
+muteCheckBox.setAttribute("id", "mute");
+muteCheckBox.setAttribute("type", "checkbox");
+muteCheckBox.setAttribute("value", "off");
+muteLabel.appendChild(muteCheckBox);
+
 
 var scaleInputBox = document.createElement("select");
 scaleInputBox.setAttribute("id", "scale");
@@ -164,6 +179,8 @@ for (var l=1; l<=7; l++) {
   scaleInputBox.appendChild(option);
 }
 scaleLabel.appendChild(scaleInputBox);
+
+
 
 svg1.addEventListener('click', () => {clicks += 1;});
 svg1.addEventListener('mousemove', mouseCoordinates);
