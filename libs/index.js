@@ -65,15 +65,17 @@ function trigger() {
 function positiveTrigger() {
   var init_hue = Math.random()*360;
   var init_rgb = HSLToRGB(init_hue, 100, 69)
-  var i = Math.floor(Math.random() * 5);
-  if (i==4) {
-    var note = randomNote(scale);
-  } else {
-    var note = randomiNote(scale);
+  if (mute == "off") {
+    var i = Math.floor(Math.random() * 5);
+    if (i==4) {
+      var note = randomNote(scale);
+    } else {
+      var note = randomiNote(scale);
+    }
+    var note_path = 'libs/soundfiles/' + note + '.mp3';
+    var audio = new Audio(note_path);
+    audio.play();
   }
-  var note_path = 'libs/soundfiles/' + note + '.mp3';
-  var audio = new Audio(note_path);
-  audio.play();
   draw(mousePosX, mousePosY, init_rgb);
   console.log("Played a " + note + " with a circle of hue " + init_hue + ".");
 }
