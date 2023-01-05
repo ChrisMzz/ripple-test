@@ -113,8 +113,8 @@ const HSLToRGB = (h, s, l) => {
     
 function updateValues(e) {
   console.log(e);
-  // max = e.target.value;
-  // scale = e.target.value;
+  var max = maxInputBox.setAttribute("value");
+  var scale = scaleInputBox.setAttribute("value");
 }
 
 
@@ -148,7 +148,7 @@ maxLabel.appendChild(maxInputBox);
 var scaleInputBox = document.createElement("input");
 scaleInputBox.setAttribute("id", "scale");
 for (var l=1; l<=7; l++) {
-  option = document.createElement("option");
+  var option = document.createElement("option");
   option.setAttribute("value", sounds["random_scale_select"][l]);
   option.innerText = sounds["random_scale_select"][l]
   scaleInputBox.appendChild(option);
