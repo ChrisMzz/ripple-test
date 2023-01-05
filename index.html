@@ -4,12 +4,38 @@
     <meta property="og:title" content="Bubbles of colour and sound"/>
     <meta property="og:site_name" content="Bubbles of colour and sound"/>
     <meta charset="utf-8">
-    <link rel="icon" href="https://raw.githubusercontent.com/ChrisMzz/ripple-test/main/bubbles.ico">
+    <link rel="icon" href="bubbles.ico">
     <title>Bubbles of colour and sound</title>
     <script type="module" src="libs/index.js"></script>
+    <style>
+        .settings {
+            background-color: rgba(60,60,120,60);
+            color: rgba(240,240,240,75);
+            width: 250px;
+          }
+    </style>
 </head>
 
 <body>
-
+    <div class="settings">
+        <label>
+            Chance Value:
+            <input id="chance" maxlength="8" value=100 />
+        </label>
+        <br>
+        <label>
+            Choose a scale:
+            <select id="scale" name="scale">
+              <option value="major">Major</option>
+              <option value="minor neapolitan">Minor Neapolitan</option>
+              <option value="other locrian">Other Locrian</option>
+              <option value="other dorian">Other Dorian</option>
+              <option value="other phygrian">Other Phygrian</option>
+              <option value="other mixolydian">Other Mixolydian</option>
+              <option value="other neapolitan">Other Neapolitan</option>
+            </select>
+          </label>
+        
+    </div>
 </body>
 
