@@ -120,18 +120,41 @@ function updateValues(e) {
 
 // building the page ---------------------------------------------
 
-const settings = document.getElementsByClassName('settings'); // implementing the settings box
-settings.addEventListener('change', updateValues);
-const maxInputBox = document.getElementById('chance');
-const scaleInputBox = document.getElementById('scale');
-
-
 
 var svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 svg1.setAttribute("height",screen.availHeight);
 svg1.setAttribute("width",screen.availWidth);
 svg1.setAttribute("style","background: rgb(0,0,0)");
 document.body.appendChild(svg1);
+
+var settings = document.createElement("div");
+settings.setAttribute("class", "settings");
+settings.addEventListener('change', updateValues);
+svg1.appendChild(settings);
+
+var maxLabel = document.createElement("label");
+maxLabel.innerText = "Chance Value : ";
+settings.appendChild(maxLabel);
+var scaleLabel = document.createElement("label");
+scaleLabel.innerText = "Choose a scale : ";
+settings.appendChild(scaleLabel);
+
+var maxInputBox = document.createElement("input");
+maxInputBox.setAttribute("id", "chance");
+maxInputBox.setAttribute("maxlength", "8");
+maxInputBox.setAttribute("value", "100");
+maxLabel.appendChild(maxInputBox);
+
+var scaleInputBox = document.createElement("input");
+scaleInputBox.setAttribute("id", "scale");
+for (var l=1; l<=7; l++) {
+  option = document.createElement("option");
+  option.setAttribute("value", sounds["random_scale_select"][l]);
+  option.innerText = sounds["random_scale_select"][l]
+  scaleInputBox.appendChild(option);
+}
+scaleLabel.appendChild(scaleInputBox);
+
 svg1.addEventListener('click', () => {clicks += 1;});
 svg1.addEventListener('mousemove', mouseCoordinates);
 
