@@ -132,12 +132,12 @@ var svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 //svg1.setAttribute("height",screen.availHeight);
 //svg1.setAttribute("width",screen.availWidth);
 svg1.setAttribute("style","background: rgb(0,0,0)");
-document.body.appendChild(svg1);
+scene.appendChild(svg1);
 
 var settings = document.createElement("div");
 settings.setAttribute("class", "settings");
 settings.addEventListener('change', updateValues);
-svg1.appendChild(settings);
+scene.appendChild(settings);
 
 var maxLabel = document.createElement("label");
 maxLabel.innerText = "Chance Value : ";
