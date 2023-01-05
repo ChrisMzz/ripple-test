@@ -126,7 +126,7 @@ function updateValues(e) {
 var scene = document.createElement("canvas");
 scene.setAttribute("id", "scene");
 scene.setAttribute("aspect-ratio", "auto");
-document.appendChild(scene);
+document.body.appendChild(scene);
 
 var svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 //svg1.setAttribute("height",screen.availHeight);
