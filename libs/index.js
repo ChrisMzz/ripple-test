@@ -120,10 +120,17 @@ function updateValues(e) {
 
 // building the page ---------------------------------------------
 
+//<canvas id="scene" width="682" height="814" style="left: -30px; top: -30px;"></canvas>
+
+
+var scene = document.createElement("canvas");
+scene.setAttribute("id", "scene");
+scene.setAttribute("aspect-ratio", "auto");
+document.appendChild(scene);
 
 var svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-svg1.setAttribute("height",screen.availHeight);
-svg1.setAttribute("width",screen.availWidth);
+//svg1.setAttribute("height",screen.availHeight);
+//svg1.setAttribute("width",screen.availWidth);
 svg1.setAttribute("style","background: rgb(0,0,0)");
 document.body.appendChild(svg1);
 
