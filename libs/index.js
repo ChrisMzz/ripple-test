@@ -65,7 +65,7 @@ function trigger() {
 function positiveTrigger() {
   var init_hue = Math.random()*360;
   var init_rgb = HSLToRGB(init_hue, 100, 69)
-  if (mute == "off") {
+  if (mute == false) {
     var i = Math.floor(Math.random() * 5);
     if (i==4) {
       var note = randomNote(scale);
@@ -114,13 +114,15 @@ const HSLToRGB = (h, s, l) => {
 };
     
 function updateValues(e) {
-  console.log(e);
   if (e.target.id == "chance") {
+    console.log(e.target.value);
     max = e.target.value;
   } else if (e.target.id == "scale") {
+    console.log(e.target.value);
     scale = e.target.value;
   } else if (e.target.id == "mute") {
-    mute = e.target.value;
+    mute = e.target.checked;
+    console.log(e.target.checked);
   }
 }
 
@@ -168,7 +170,7 @@ maxLabel.appendChild(maxInputBox);
 var muteCheckBox = document.createElement("input");
 muteCheckBox.setAttribute("id", "mute");
 muteCheckBox.setAttribute("type", "checkbox");
-muteCheckBox.setAttribute("value", "off");
+var mute = false;
 muteLabel.appendChild(muteCheckBox);
 
 
