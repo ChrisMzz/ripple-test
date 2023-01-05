@@ -113,8 +113,11 @@ const HSLToRGB = (h, s, l) => {
     
 function updateValues(e) {
   console.log(e);
-  var max = maxInputBox.setAttribute("value");
-  var scale = scaleInputBox.setAttribute("value");
+  if (e.target.id == "chance") {
+    max = e.target.value;
+  } else if (e.target.id == "scale") {
+    scale = scaleInputBox.getAttribute("value");
+  }
 }
 
 
