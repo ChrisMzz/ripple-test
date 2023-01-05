@@ -148,7 +148,7 @@ var maxLabel = document.createElement("label");
 maxLabel.innerText = "Chance Value : ";
 settings.appendChild(maxLabel);
 var muteLabel = document.createElement("label");
-mute.innerText = "Mute : ";
+muteLabel.innerText = "Mute : ";
 settings.appendChild(muteLabel);
 settings.appendChild(br);
 var scaleLabel = document.createElement("label");
